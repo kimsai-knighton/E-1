@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Radio
+* source:	https://sketchfab.com/3d-models/old-radio-2165db08681c4b02bc6ab3826e2dea93
+* author:	Low Poly Models (https://sketchfab.com/LowPolyModelsWorld)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Radio" (https://sketchfab.com/3d-models/old-radio-2165db08681c4b02bc6ab3826e2dea93) by Low Poly Models (https://sketchfab.com/LowPolyModelsWorld) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

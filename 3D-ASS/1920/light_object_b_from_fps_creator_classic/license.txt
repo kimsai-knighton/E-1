@@ -1,0 +1,11 @@
+Model Information:
+* title:	light_object_b from FPS creator classic
+* source:	https://sketchfab.com/3d-models/light-object-b-from-fps-creator-classic-af988127870d40aca7888fda6e0814af
+* author:	Garbage Raccoon (https://sketchfab.com/GarbageRaccoon)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "light_object_b from FPS creator classic" (https://sketchfab.com/3d-models/light-object-b-from-fps-creator-classic-af988127870d40aca7888fda6e0814af) by Garbage Raccoon (https://sketchfab.com/GarbageRaccoon) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
