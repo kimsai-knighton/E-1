@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bymm4xwkaft3n"]
+
+[ext_resource type="Script" uid="uid://c2xdk1u0dxr6m" path="res://player/scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://byyqfxkg7j2rb" path="res://player/scripts/crosshair.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://cln24072oqepb" path="res://player/scripts/viewer.gd" id="3_g1dw6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1tn62"]
+radius = 0.2
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cecqq"]
+radius = 0.2
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=1581857686]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1356437646]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_1tn62")
+
+[node name="Head" type="Node3D" parent="." unique_id=362871005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera" type="Camera3D" parent="Head" unique_id=717273135]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera" unique_id=247799557]
+target_position = Vector3(0, 0, -3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=325326097]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_cecqq")
+
+[node name="Crosshair" type="Control" parent="." unique_id=794612665]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_onrkg")
+
+[node name="Viewer" type="Control" parent="." unique_id=1717823892]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_g1dw6")
+
+[node name="ColorRect" type="ColorRect" parent="Viewer" unique_id=1546135134]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="TextureRect" type="TextureRect" parent="Viewer" unique_id=1381692723]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -275.0
+offset_right = 275.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
