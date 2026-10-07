@@ -27,6 +27,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera" unique_id=247799557]
 target_position = Vector3(0, 0, -3)
 
+[node name="HoldPosition" type="Marker3D" parent="Head/Camera" unique_id=432045387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=325326097]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_cecqq")

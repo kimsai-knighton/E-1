@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://da4brpr0qe4ye"]
+
+[ext_resource type="PackedScene" uid="uid://dnfn2qf0g2fod" path="res://test_room/models/Batterty-OLD/Battery-OLD.glb" id="1_vs6ep"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qroor"]
+height = 0.16194916
+radius = 0.034179688
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1893441253]
+mass = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1137367857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0046043396, 0)
+shape = SubResource("CylinderShape3D_qroor")
+
+[node name="Battery-OLD2" parent="." unique_id=1017701725 instance=ExtResource("1_vs6ep")]

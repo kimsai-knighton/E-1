@@ -2,11 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://5wsa0l4u0bsk" path="res://test_room/scene-assets/MAIN-20.glb" id="1_nsasr"]
 [ext_resource type="PackedScene" uid="uid://bymm4xwkaft3n" path="res://player/player.tscn" id="2_jgv5m"]
+[ext_resource type="PackedScene" uid="uid://c0lpq0vlv2a48" path="res://test_room/models/Board/Maketkablend.glb" id="4_spqct"]
+[ext_resource type="PackedScene" uid="uid://8wd2uf7kiqt2" path="res://test_room/models/key/Key.glb" id="5_gduad"]
+[ext_resource type="PackedScene" uid="uid://da4brpr0qe4ye" path="res://test_room/models/Batterty-OLD/PHYS-Battery.tscn" id="5_lxoma"]
 
 [node name="MAIN-20" unique_id=749487496 instance=ExtResource("1_nsasr")]
 
 [node name="Player" parent="." index="46" unique_id=1581857686 instance=ExtResource("2_jgv5m")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.042, 0)
+speed = 2.0
+mouse_sensitivity = 0.001
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="47" unique_id=1299365463]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.23, 1.51, -2.72)
@@ -14,3 +19,12 @@ light_color = Color(0.69528174, 0.5086117, 0.2692073, 1)
 light_energy = 5.0
 spot_range = 1.4039775
 spot_angle = 74.34527
+
+[node name="Maketkablend" parent="." index="48" unique_id=1722364910 instance=ExtResource("4_spqct")]
+transform = Transform3D(-5.6824803e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.6824803e-08, 1.6400844, 0.902173, -2.1018372)
+
+[node name="Key2" parent="." index="49" unique_id=631483756 instance=ExtResource("5_gduad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6610131, 0.9159228, -1.8496174)
+
+[node name="RigidBody3D" parent="." index="50" unique_id=1893441253 instance=ExtResource("5_lxoma")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.6039865, 0.97592264, -1.3516148)
