@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b73nytfajbuy2"]
+
+[ext_resource type="PackedScene" uid="uid://5wsa0l4u0bsk" path="res://test_room/scene-assets/MAIN-20.glb" id="1_nsasr"]
+
+[node name="MAIN-20" unique_id=749487496 instance=ExtResource("1_nsasr")]
