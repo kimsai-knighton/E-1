@@ -1,5 +1,16 @@
 [gd_scene format=3 uid="uid://b73nytfajbuy2"]
 
 [ext_resource type="PackedScene" uid="uid://5wsa0l4u0bsk" path="res://test_room/scene-assets/MAIN-20.glb" id="1_nsasr"]
+[ext_resource type="PackedScene" uid="uid://bymm4xwkaft3n" path="res://player/player.tscn" id="2_jgv5m"]
 
 [node name="MAIN-20" unique_id=749487496 instance=ExtResource("1_nsasr")]
+
+[node name="Player" parent="." index="46" unique_id=1581857686 instance=ExtResource("2_jgv5m")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.042, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="47" unique_id=1299365463]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.23, 1.51, -2.72)
+light_color = Color(0.69528174, 0.5086117, 0.2692073, 1)
+light_energy = 5.0
+spot_range = 1.4039775
+spot_angle = 74.34527
