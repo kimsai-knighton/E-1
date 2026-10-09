@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnyh5qad66gbj"
-path.s3tc="res://.godot/imported/Key_TEX.png-1ec66629e23d0fca31bd33dff38af613.s3tc.ctex"
+uid="uid://bliqfibfecsbq"
+path.s3tc="res://.godot/imported/Wooden Board_kitchen_table.jpg-6559216cdf27b9a8c255ca96646468cc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "52c2ceccedca66e6ae10d6a830ade349"
+"md5": "2accf2ebaa04804fdc54e8d93ee28db9"
 }
 
 [deps]
 
-source_file="res://test_room/models/Key/Key_TEX.png"
-dest_files=["res://.godot/imported/Key_TEX.png-1ec66629e23d0fca31bd33dff38af613.s3tc.ctex"]
+source_file="res://test_room/models/Wooden Board/Wooden Board_kitchen_table.jpg"
+dest_files=["res://.godot/imported/Wooden Board_kitchen_table.jpg-6559216cdf27b9a8c255ca96646468cc.s3tc.ctex"]
 
 [params]
 

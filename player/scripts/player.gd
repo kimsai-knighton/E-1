@@ -4,6 +4,11 @@ extends CharacterBody3D
 @export var mouse_sensitivity: float = 0.003
 @export var carry_strength: float = 15.0 # Сила, с которой предмет тянется к камере
 
+@export var min_hold_distance: float = 0.25   # Минимальное расстояние (самое близкое)
+@export var max_hold_distance: float = 1.5   # Максимальное расстояние
+@export var scroll_step: float = 0.2         # Шаг изменения дистанции за один тик колесика
+var current_hold_distance: float = 0.5       # Текущая дистанция по умолчанию
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var counter = 0
 
@@ -18,6 +23,7 @@ var held_object: RigidBody3D = null # Переменная для хранени
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	current_hold_distance = abs(hold_position.position.z)
 
 func _unhandled_input(event):
 	if note_viewer.visible:
@@ -28,11 +34,23 @@ func _unhandled_input(event):
 		head.rotate_x(-event.relative.y * mouse_sensitivity)
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 		
+	# --- Обработка скролла колесика мыши ---
+	if held_object and event is InputEventMouseButton and event.is_pressed():
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			# Приближаем объект
+			current_hold_distance = clamp(current_hold_distance - scroll_step, min_hold_distance, max_hold_distance)
+			hold_position.position.z = -current_hold_distance
+			
+		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			# Отдаляем объект
+			current_hold_distance = clamp(current_hold_distance + scroll_step, min_hold_distance, max_hold_distance)
+			hold_position.position.z = -current_hold_distance
+
 	if event.is_action_pressed("interact"):
 		if held_object:
-			_drop_object() # Если в руках что-то есть — бросаем
+			_drop_object()
 		else:
-			_try_interact() # Иначе пытаемся взаимодействовать
+			_try_interact()
 
 func _physics_process(delta):
 	if note_viewer.visible:
@@ -84,13 +102,18 @@ func _try_interact():
 
 func _pick_up_object(target: RigidBody3D):
 	held_object = target
-	# Временно отключаем гравитацию объекта, чтобы его вес не тянул вниз при переноске
 	held_object.gravity_scale = 0.0
-
+	held_object.get_node("CollisionShape3D").set_deferred("disabled", true)
+	
+	# Сброс на дефолтную дистанцию при взятии в руки:
+	current_hold_distance = 0.5
+	hold_position.position.z = -current_hold_distance
+	
 func _drop_object():
 	if held_object:
 		# Возвращаем гравитацию
 		held_object.gravity_scale = 1.0
+		held_object.get_node("CollisionShape3D").set_deferred("disabled", false)
 		held_object = null
 
 func _process_held_object():
@@ -109,8 +132,16 @@ func _process_held_object():
 		# Придаем объекту скорость в направлении точки HoldPosition
 		held_object.linear_velocity = direction * carry_strength
 		
-		# Плавно гасим вращение, чтобы предмет не дергался и не крутился в руках
-		held_object.angular_velocity = held_object.angular_velocity.lerp(Vector3.ZERO, 0.1)
+		held_object.angular_velocity = Vector3.ZERO
+		
+		var target_basis = hold_position.global_basis.rotated(
+			hold_position.global_basis.x.normalized(), 
+			deg_to_rad(30.0)
+		)
+		
+		var current_quat = held_object.global_basis.get_rotation_quaternion()
+		var target_quat = target_basis.get_rotation_quaternion()
+		held_object.global_basis = Basis(current_quat.slerp(target_quat, 0.2))
 
 func open_note_view(texture: Texture2D):
 	note_viewer.open_note(texture)

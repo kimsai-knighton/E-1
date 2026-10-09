@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cln24072oqepb" path="res://player/scripts/viewer.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1tn62"]
-radius = 0.2
+radius = 0.100097656
 height = 1.8
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cecqq"]
@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 target_position = Vector3(0, 0, -3)
 
 [node name="HoldPosition" type="Marker3D" parent="Head/Camera" unique_id=432045387]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=325326097]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)

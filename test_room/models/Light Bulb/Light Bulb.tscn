@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d3lfxdmvwxdr0"]
+
+[ext_resource type="PackedScene" uid="uid://dgcn72pwdwwvr" path="res://test_room/models/Light Bulb/Bulb.glb" id="1_aw7tg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qroor"]
+radius = 0.0390625
+height = 0.12901306
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1706745258]
+mass = 0.1
+
+[node name="Bulb" parent="." unique_id=464585550 instance=ExtResource("1_aw7tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06015472, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2089872660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0035583526, 0)
+shape = SubResource("CapsuleShape3D_qroor")

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnyh5qad66gbj"
-path.s3tc="res://.godot/imported/Key_TEX.png-1ec66629e23d0fca31bd33dff38af613.s3tc.ctex"
+uid="uid://dexdrs3dpv20c"
+path.s3tc="res://.godot/imported/Bulb_LMP0003_Textures_normal.png-ea79f37d134085f86e7b8965dad5cf09.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "52c2ceccedca66e6ae10d6a830ade349"
+"md5": "02c499daaedab21110e0932998cce953"
 }
 
 [deps]
 
-source_file="res://test_room/models/Key/Key_TEX.png"
-dest_files=["res://.godot/imported/Key_TEX.png-1ec66629e23d0fca31bd33dff38af613.s3tc.ctex"]
+source_file="res://test_room/models/Light Bulb/Bulb_LMP0003_Textures_normal.png"
+dest_files=["res://.godot/imported/Bulb_LMP0003_Textures_normal.png-ea79f37d134085f86e7b8965dad5cf09.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://test_room/models/Light Bulb/Bulb_LMP0003_Textures_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

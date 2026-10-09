@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8wd2uf7kiqt2"
-path="res://.godot/imported/Key.glb-7363df611fcd3172ed238cfdd44621a8.scn"
+uid="uid://coeekdj4pp3ku"
+path="res://.godot/imported/Wooden Board.glb-8672d7262ad5edd18f6e1b5252409d26.scn"
 
 [deps]
 
-source_file="res://test_room/models/Key/Key.glb"
-dest_files=["res://.godot/imported/Key.glb-7363df611fcd3172ed238cfdd44621a8.scn"]
+source_file="res://test_room/models/Wooden Board/Wooden Board.glb"
+dest_files=["res://.godot/imported/Wooden Board.glb-8672d7262ad5edd18f6e1b5252409d26.scn"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnyh5qad66gbj"
-path.s3tc="res://.godot/imported/Key_TEX.png-1ec66629e23d0fca31bd33dff38af613.s3tc.ctex"
+uid="uid://df52shtyk8msi"
+path.s3tc="res://.godot/imported/Bulb_LMP0003_Textures_baseColor.png-df29acf984d1e46b0a1df5552b07097e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "52c2ceccedca66e6ae10d6a830ade349"
+"md5": "134da1b51a07e2812dd421e7608dadeb"
 }
 
 [deps]
 
-source_file="res://test_room/models/Key/Key_TEX.png"
-dest_files=["res://.godot/imported/Key_TEX.png-1ec66629e23d0fca31bd33dff38af613.s3tc.ctex"]
+source_file="res://test_room/models/Light Bulb/Bulb_LMP0003_Textures_baseColor.png"
+dest_files=["res://.godot/imported/Bulb_LMP0003_Textures_baseColor.png-df29acf984d1e46b0a1df5552b07097e.s3tc.ctex"]
 
 [params]
 

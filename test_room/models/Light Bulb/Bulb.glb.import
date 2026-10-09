@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8wd2uf7kiqt2"
-path="res://.godot/imported/Key.glb-7363df611fcd3172ed238cfdd44621a8.scn"
+uid="uid://dgcn72pwdwwvr"
+path="res://.godot/imported/Bulb.glb-d12b9a3b7dfacbfe1e37890d27e16cfd.scn"
 
 [deps]
 
-source_file="res://test_room/models/Key/Key.glb"
-dest_files=["res://.godot/imported/Key.glb-7363df611fcd3172ed238cfdd44621a8.scn"]
+source_file="res://test_room/models/Light Bulb/Bulb.glb"
+dest_files=["res://.godot/imported/Bulb.glb-d12b9a3b7dfacbfe1e37890d27e16cfd.scn"]
 
 [params]
 
