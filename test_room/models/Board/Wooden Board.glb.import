@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c0lpq0vlv2a48"
-path="res://.godot/imported/Maketkablend.glb-5fca237dbb7bb02cf884276451fb913d.scn"
+uid="uid://chhbxn6wttv4"
+path="res://.godot/imported/Wooden Board.glb-efb409e71f7f7ed1fce36db45ee3fcae.scn"
 
 [deps]
 
-source_file="res://test_room/models/Board/Maketkablend.glb"
-dest_files=["res://.godot/imported/Maketkablend.glb-5fca237dbb7bb02cf884276451fb913d.scn"]
+source_file="res://test_room/models/Board/Wooden Board.glb"
+dest_files=["res://.godot/imported/Wooden Board.glb-efb409e71f7f7ed1fce36db45ee3fcae.scn"]
 
 [params]
 

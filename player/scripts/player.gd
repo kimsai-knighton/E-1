@@ -48,7 +48,7 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("interact"):
 		if held_object:
-			_drop_object()
+			_try_place_or_drop()
 		else:
 			_try_interact()
 
@@ -93,7 +93,7 @@ func _try_interact():
 		
 		# 1. Проверяем, физический ли это объект
 		if target is RigidBody3D:
-			_pick_up_object(target)
+			_pick_up_object(target)	
 			return
 		
 		# 2. Если нет, работает стандартная логика записок/кнопок
@@ -108,7 +108,37 @@ func _pick_up_object(target: RigidBody3D):
 	# Сброс на дефолтную дистанцию при взятии в руки:
 	current_hold_distance = 0.5
 	hold_position.position.z = -current_hold_distance
+
+func _try_place_or_drop():
+	if not held_object: return
 	
+	var target = interact_ray.get_collider()
+	
+	# Если мы смотрим на доску
+	if target and target.has_method("get_grid_pos"):
+		var hit_point = interact_ray.get_collision_point()
+		
+		# СНАЧАЛА узнаем размеры
+		var size_x = held_object.grid_size_x if "grid_size_x" in held_object else 1
+		var size_y = held_object.grid_size_y if "grid_size_y" in held_object else 1
+
+		# ПОТОМ передаем эти размеры в функцию доски, на которую мы смотрим
+		var grid_pos = target.get_grid_pos(hit_point, size_x, size_y)
+				
+		# Пытаемся разместить
+		if target.can_place(grid_pos, size_x, size_y):
+			# Если можно поставить - ставим
+			target.place_object(held_object, grid_pos, size_x, size_y)
+			
+			# Очищаем руки игрока, НО НЕ вызываем _drop_object,
+			# так как _drop_object включает гравитацию, а нам нужно, чтобы предмет прилип.
+			held_object.get_node("CollisionShape3D").set_deferred("disabled", false)
+			held_object = null
+			return
+			
+	# Если мы НЕ смотрим на доску ИЛИ cannot_place() вернул false - просто бросаем объект
+	_drop_object()
+
 func _drop_object():
 	if held_object:
 		# Возвращаем гравитацию
@@ -117,21 +147,42 @@ func _drop_object():
 		held_object = null
 
 func _process_held_object():
-	if held_object:
+	if not held_object: return
+	
+	var target = interact_ray.get_collider()
+	
+	# --- ВИЗУАЛЬНЫЙ РЕЖИМ УСТАНОВКИ НА ДОСКУ ---
+	if target and target.has_method("get_grid_pos"):
+		var hit_point = interact_ray.get_collision_point()
+# СНАЧАЛА узнаем размеры
+		var size_x = held_object.grid_size_x if "grid_size_x" in held_object else 1
+		var size_y = held_object.grid_size_y if "grid_size_y" in held_object else 1
+
+		# ПОТОМ передаем эти размеры в функцию доски, на которую мы смотрим
+		var grid_pos = target.get_grid_pos(hit_point, size_x, size_y)	
+			
+		var snap_local_pos = target.get_local_pos_from_grid(grid_pos, size_x, size_y)
+		
+		var offset_y = held_object.bottom_offset if "bottom_offset" in held_object else 0.0
+		snap_local_pos.y = offset_y 
+		
+		held_object.freeze = true 
+		held_object.global_position = target.to_global(snap_local_pos)
+		held_object.global_basis = target.global_basis
+		
+	# --- ОБЫЧНЫЙ РЕЖИМ УДЕРЖАНИЯ В РУКАХ ---
+	else:
 		var target_pos = hold_position.global_position
 		var obj_pos = held_object.global_position
 		var direction = target_pos - obj_pos
 		var distance = direction.length()
 		
-		# Защита от багов: если предмет застрял за стеной и игрок отошел далеко,
-		# связь разрывается, чтобы объект не пролетал сквозь стены на огромной скорости.
 		if distance > 3.0:
 			_drop_object()
 			return
 			
-		# Придаем объекту скорость в направлении точки HoldPosition
+		held_object.freeze = false
 		held_object.linear_velocity = direction * carry_strength
-		
 		held_object.angular_velocity = Vector3.ZERO
 		
 		var target_basis = hold_position.global_basis.rotated(
@@ -142,7 +193,6 @@ func _process_held_object():
 		var current_quat = held_object.global_basis.get_rotation_quaternion()
 		var target_quat = target_basis.get_rotation_quaternion()
 		held_object.global_basis = Basis(current_quat.slerp(target_quat, 0.2))
-
 func open_note_view(texture: Texture2D):
 	note_viewer.open_note(texture)
 

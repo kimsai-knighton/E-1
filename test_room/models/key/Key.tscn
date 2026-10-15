@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://wjgchnywfenx"]
 
+[ext_resource type="Script" uid="uid://urdfbff4sqgl" path="res://test_room/models/scripts/el-component.gd" id="1_6n5rn"]
 [ext_resource type="PackedScene" uid="uid://8wd2uf7kiqt2" path="res://test_room/models/Key/Key.glb" id="1_c836c"]
+[ext_resource type="Script" uid="uid://cqdkl6yu5ltg1" path="res://test_room/models/scripts/pin.gd" id="3_fea26"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qroor"]
 height = 0.044921875
@@ -8,9 +10,24 @@ radius = 0.041015625
 
 [node name="RigidBody3D" type="RigidBody3D" unique_id=533913061]
 mass = 0.15
+script = ExtResource("1_6n5rn")
+grid_size_x = 2
+grid_size_y = 2
+component_type = "key"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1776652630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005859375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.030049313, 0)
 shape = SubResource("CylinderShape3D_qroor")
 
-[node name="Key2" parent="." unique_id=303047447 instance=ExtResource("1_c836c")]
+[node name="Key" parent="." unique_id=303047447 instance=ExtResource("1_c836c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.024189938, 0)
+
+[node name="plus" type="Marker3D" parent="Key" unique_id=887134024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020288333, 0.030432481)
+script = ExtResource("3_fea26")
+pin_name = "plus"
+
+[node name="minus" type="Marker3D" parent="Key" unique_id=1238455890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020288326, -0.029652217)
+script = ExtResource("3_fea26")
+pin_name = "minus"

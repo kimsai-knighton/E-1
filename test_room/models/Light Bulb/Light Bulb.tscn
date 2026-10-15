@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d3lfxdmvwxdr0"]
 
 [ext_resource type="PackedScene" uid="uid://dgcn72pwdwwvr" path="res://test_room/models/Light Bulb/Bulb.glb" id="1_aw7tg"]
+[ext_resource type="Script" uid="uid://urdfbff4sqgl" path="res://test_room/models/scripts/el-component.gd" id="1_tv806"]
+[ext_resource type="Script" uid="uid://cqdkl6yu5ltg1" path="res://test_room/models/scripts/pin.gd" id="3_aop3a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qroor"]
 radius = 0.0390625
@@ -8,10 +10,22 @@ height = 0.12901306
 
 [node name="RigidBody3D" type="RigidBody3D" unique_id=1706745258]
 mass = 0.1
-
-[node name="Bulb" parent="." unique_id=464585550 instance=ExtResource("1_aw7tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06015472, 0)
+script = ExtResource("1_tv806")
+is_on = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2089872660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0035583526, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06325286, 0)
 shape = SubResource("CapsuleShape3D_qroor")
+
+[node name="Bulb" parent="." unique_id=464585550 instance=ExtResource("1_aw7tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0004602149, 0)
+
+[node name="plus" type="Marker3D" parent="Bulb" unique_id=1937390238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.003376916, 0)
+script = ExtResource("3_aop3a")
+pin_name = "plus"
+
+[node name="minus" type="Marker3D" parent="Bulb" unique_id=1688791902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015216231, 0.017627262, 0.0003901031)
+script = ExtResource("3_aop3a")
+pin_name = "minus"

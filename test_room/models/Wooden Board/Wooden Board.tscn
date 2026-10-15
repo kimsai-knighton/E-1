@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://cgrdesfxamxp6"]
 
-[ext_resource type="PackedScene" uid="uid://coeekdj4pp3ku" path="res://test_room/models/Wooden Board/Wooden Board.glb" id="1_a1arr"]
+[ext_resource type="Script" uid="uid://d1u8mq0oncc3n" path="res://test_room/models/Wooden Board/scripts/wooden_board.gd" id="1_t86c3"]
+[ext_resource type="PackedScene" uid="uid://chhbxn6wttv4" path="res://test_room/models/Board/Wooden Board.glb" id="2_t86c3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qroor"]
 size = Vector3(0.26184082, 0.01134491, 0.20227051)
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=718780218]
-mass = 0.25
+[node name="RigidBody3D" type="StaticBody3D" unique_id=884096815]
+script = ExtResource("1_t86c3")
+cell_size = 0.026
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1618403258]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.00030517578, 0.00011062622, 0.00018310547)
 shape = SubResource("BoxShape3D_qroor")
 
-[node name="Wooden Board" parent="." unique_id=150081115 instance=ExtResource("1_a1arr")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="Wooden Board" parent="." unique_id=169574263 instance=ExtResource("2_t86c3")]
